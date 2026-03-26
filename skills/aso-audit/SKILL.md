@@ -47,6 +47,9 @@ Run both detect_project.py AND fetch_listing.py, then diff the results.
 - Load category-specific benchmarks
 
 ### Step 3: Parallel Subagent Dispatch
+
+**IMPORTANT: Run ALL agents in FOREGROUND (not background).** Launch them all in a single message with multiple Agent tool calls so they run in parallel, but do NOT use `run_in_background`. This ensures you have all results before proceeding to Step 4. Do NOT output anything to the user between launching agents and presenting the final report.
+
 Spawn ALL of these agents simultaneously using the Agent tool:
 
 | Agent | Input | Focus |
@@ -66,6 +69,8 @@ Each agent returns: `{ score: 0-100, findings: [...], recommendations: [...] }`
 
 ### Step 4: Score Aggregation (sequential)
 
+Once ALL agents have returned, calculate the weighted score:
+
 | Category | Weight | Source Agent |
 |----------|--------|-------------|
 | Keyword Optimization | 20% | aso-keywords |
@@ -82,54 +87,55 @@ Each agent returns: `{ score: 0-100, findings: [...], recommendations: [...] }`
 
 Generate two files in the current directory:
 
-**ASO-AUDIT-REPORT.md:**
-```markdown
-# ASO Audit Report: [App Name]
-## Executive Summary
-- ASO Health Score: XX/100
-- Platform: iOS / Android
-- Category: [detected]
-- Top 3 Issues: [...]
-- Quick Wins: [...]
+**ASO-AUDIT-REPORT.md** — detailed findings per category.
 
-## Keyword Optimization (XX/100)
-[agent findings]
+**ASO-ACTION-PLAN.md** — prioritized checklist (Critical > High > Medium > Low).
 
-## Metadata Quality (XX/100)
-[agent findings]
+### Step 6: Final Summary (CRITICAL — this is what the user sees)
 
-## Visual Assets (XX/100)
-[agent findings]
+After writing both report files, output a clean, well-formatted summary to the user. This is the most important part of the audit — it must be the LAST thing shown and must be visually clear.
 
-## Reviews & Ratings (XX/100)
-[agent findings]
+**Format the final output EXACTLY like this:**
 
-## Competitive Position (XX/100)
-[agent findings]
+```
+## ASO Audit: [App Name]
 
-## Technical Health (XX/100)
-[agent findings]
+**Score: XX/100** | Platform: [iOS/Android] | Category: [category]
 
-## Conversion Signals (XX/100)
-[agent findings]
+### Score Breakdown
+
+| Category           | Score | Status |
+|--------------------|-------|--------|
+| Keywords           | XX    | [emoji-free status word] |
+| Metadata           | XX    | ... |
+| Visual Assets      | XX    | ... |
+| Reviews & Ratings  | XX    | ... |
+| Competitive        | XX    | ... |
+| Technical          | XX    | ... |
+| Conversion         | XX    | ... |
+
+### Top Issues
+
+1. **[Issue title]** — [one-line description with specific fix]
+2. **[Issue title]** — [one-line description with specific fix]
+3. **[Issue title]** — [one-line description with specific fix]
+
+### Quick Wins (< 30 min)
+
+- [Action] — [expected impact]
+- [Action] — [expected impact]
+- [Action] — [expected impact]
+
+Full report: `ASO-AUDIT-REPORT.md` | Action plan: `ASO-ACTION-PLAN.md`
 ```
 
-**ASO-ACTION-PLAN.md:**
-```markdown
-# ASO Action Plan: [App Name]
-
-## Critical (Fix Immediately)
-- [ ] [issue + specific recommendation]
-
-## High Priority (This Week)
-- [ ] [issue + specific recommendation]
-
-## Medium Priority (This Month)
-- [ ] [issue + specific recommendation]
-
-## Low Priority (Backlog)
-- [ ] [issue + specific recommendation]
-```
+**Rules for the final summary:**
+- Keep it SHORT — max 40 lines. The detail is in the files.
+- Top Issues: exactly 3, the most impactful ones.
+- Quick Wins: 3-5 items, things achievable in under 30 minutes each.
+- Status words: use "Excellent", "Good", "Needs Work", "Poor", "Critical" (no emojis).
+- End with file paths so the user knows where to find the full detail.
+- Do NOT repeat the full findings — that's what the report files are for.
 
 ## Available Tools
 Read, Bash, Write, Glob, Grep, WebFetch, Agent
