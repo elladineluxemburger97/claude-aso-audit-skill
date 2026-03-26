@@ -32,6 +32,7 @@ Comprehensive ASO analysis for iOS App Store and Google Play apps. Works in two 
 | `/aso ab-testing <app-id>` | A/B testing — iOS PPO / Android experiment design |
 | `/aso technical <app-id>` | Technical ASO — Android Vitals, app size, crashes, update cadence |
 | `/aso conversion <app-id>` | Conversion — install rate benchmarking, first-impression audit |
+| `/aso compliance` | Store policy check — validates metadata against Apple/Google guidelines |
 | `/aso plan <category>` | Strategic plan — 4-phase roadmap with category templates |
 | `/aso launch` | Launch — pre-launch checklist using local project state |
 | `/aso seasonal <app-id>` | Seasonal — trending keyword opportunities, holiday calendar |

@@ -69,25 +69,42 @@ Each agent returns: `{ score: 0-100, findings: [...], recommendations: [...] }`
 
 ### Step 4: Score Aggregation (sequential)
 
-Once ALL agents have returned, calculate the weighted score:
+### Step 3.5: Compliance Validation (sequential — runs AFTER all agents return)
+
+Once all parallel agents have returned, run the **aso-compliance** agent. Pass it:
+1. The original listing metadata
+2. ALL recommendations from the other agents (title rewrites, keyword suggestions, description changes)
+
+The compliance agent validates everything against `references/store-policies.md` and returns:
+- Violations in the CURRENT metadata (include in audit report)
+- Violations in RECOMMENDED changes (remove from action plan, replace with compliant alternatives)
+
+**Any recommendation that violates a store policy MUST be removed from the final action plan.** The compliance agent suggests compliant alternatives where possible.
+
+### Step 4: Score Aggregation (sequential)
+
+Calculate the weighted score:
 
 | Category | Weight | Source Agent |
 |----------|--------|-------------|
 | Keyword Optimization | 20% | aso-keywords |
-| Metadata Quality | 20% | aso-metadata |
+| Metadata Quality | 15% | aso-metadata |
 | Visual Assets | 15% | aso-visuals |
 | Reviews & Ratings | 15% | aso-reviews |
 | Competitive Position | 10% | aso-competitors |
 | Technical Health | 10% | aso-technical |
 | Conversion Signals | 10% | aso-conversion |
+| Policy Compliance | 5% | aso-compliance |
 
 **ASO Health Score** = weighted average, rounded to integer.
+
+Note: Compliance has only 5% weight in the score but has VETO power — any VIOLATION-level finding gets escalated to Critical in the action plan regardless of score.
 
 ### Step 5: Report Generation (sequential)
 
 Generate two files in the current directory:
 
-**ASO-AUDIT-REPORT.md** — detailed findings per category.
+**ASO-AUDIT-REPORT.md** — detailed findings per category (including a Policy Compliance section).
 
 **ASO-ACTION-PLAN.md** — prioritized checklist (Critical > High > Medium > Low).
 

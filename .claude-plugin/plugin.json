@@ -19,7 +19,8 @@
     "skills/aso-conversion/SKILL.md",
     "skills/aso-plan/SKILL.md",
     "skills/aso-launch/SKILL.md",
-    "skills/aso-seasonal/SKILL.md"
+    "skills/aso-seasonal/SKILL.md",
+    "skills/aso-compliance/SKILL.md"
   ],
   "agents": [
     "agents/aso-keywords.md",
@@ -30,6 +31,7 @@
     "agents/aso-localization.md",
     "agents/aso-ab-testing.md",
     "agents/aso-technical.md",
-    "agents/aso-conversion.md"
+    "agents/aso-conversion.md",
+    "agents/aso-compliance.md"
   ]
 }
